@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, View, Text } from 'react-native';
 import * as Icon from "react-native-feather";
-
+import { formatViews } from '../utils/numbers'
 
 type Props = {
     id: number;
@@ -22,7 +22,7 @@ const ShortVideoCard = (props: Props) => {
                 {props.title}
             </Text>
             <Text className="text-white shadow-md font-extrabold text-xs">
-                {props.viewCount} views
+                {formatViews(Number(props.viewCount))} views
             </Text>
         </View>
     </View>

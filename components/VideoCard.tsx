@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, View, Text } from 'react-native';
 import * as Icon from "react-native-feather";
+import { formatViews } from '../utils/numbers'
 
 
 type Props = {
@@ -15,6 +16,7 @@ type Props = {
 }
 
 const VideoCard = (props: Props) => {
+
   return (
     <View className=''>
         <Image source={props.thumbnail} className='h-52 w-full' />
@@ -33,7 +35,7 @@ const VideoCard = (props: Props) => {
                 {props.title}
             </Text>
             <Text className='text-zinc-400 text-xs'>
-                {props.channelTitle} • {props.viewCount} views • {props.published}
+                {props.channelTitle.length > 20 ? props.channelTitle.slice(0,20) + "..." : props.channelTitle} • {formatViews(Number(props.viewCount))} views • {props.published}
             </Text>
         </View>
         <View className='self-start'>
